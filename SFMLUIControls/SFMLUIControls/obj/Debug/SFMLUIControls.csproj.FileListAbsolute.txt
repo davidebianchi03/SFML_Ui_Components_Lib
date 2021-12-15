@@ -1,0 +1,15 @@
+C:\Users\Davide\Desktop\cursorspeed\cursorspeedc#\SFMLUIControls\SFMLUIControls\bin\Debug\SFMLUIControls.dll
+C:\Users\Davide\Desktop\cursorspeed\cursorspeedc#\SFMLUIControls\SFMLUIControls\bin\Debug\SFMLUIControls.pdb
+C:\Users\Davide\Desktop\cursorspeed\cursorspeedc#\SFMLUIControls\SFMLUIControls\bin\Debug\SFML.Audio.dll
+C:\Users\Davide\Desktop\cursorspeed\cursorspeedc#\SFMLUIControls\SFMLUIControls\bin\Debug\SFML.Graphics.dll
+C:\Users\Davide\Desktop\cursorspeed\cursorspeedc#\SFMLUIControls\SFMLUIControls\bin\Debug\SFML.System.dll
+C:\Users\Davide\Desktop\cursorspeed\cursorspeedc#\SFMLUIControls\SFMLUIControls\bin\Debug\SFML.Window.dll
+C:\Users\Davide\Desktop\cursorspeed\cursorspeedc#\SFMLUIControls\SFMLUIControls\bin\Debug\SFML.Audio.xml
+C:\Users\Davide\Desktop\cursorspeed\cursorspeedc#\SFMLUIControls\SFMLUIControls\bin\Debug\SFML.Graphics.xml
+C:\Users\Davide\Desktop\cursorspeed\cursorspeedc#\SFMLUIControls\SFMLUIControls\bin\Debug\SFML.System.xml
+C:\Users\Davide\Desktop\cursorspeed\cursorspeedc#\SFMLUIControls\SFMLUIControls\bin\Debug\SFML.Window.xml
+C:\Users\Davide\Desktop\cursorspeed\cursorspeedc#\SFMLUIControls\SFMLUIControls\obj\Debug\SFMLUIControls.csproj.AssemblyReference.cache
+C:\Users\Davide\Desktop\cursorspeed\cursorspeedc#\SFMLUIControls\SFMLUIControls\obj\Debug\SFMLUIControls.csproj.CoreCompileInputs.cache
+C:\Users\Davide\Desktop\cursorspeed\cursorspeedc#\SFMLUIControls\SFMLUIControls\obj\Debug\SFMLUIControls.csproj.CopyComplete
+C:\Users\Davide\Desktop\cursorspeed\cursorspeedc#\SFMLUIControls\SFMLUIControls\obj\Debug\SFMLUIControls.dll
+C:\Users\Davide\Desktop\cursorspeed\cursorspeedc#\SFMLUIControls\SFMLUIControls\obj\Debug\SFMLUIControls.pdb
