@@ -17,6 +17,8 @@ namespace UIControlsTest
             btn.textColor = Color.Red;
             btn.textSize = 16;
             btn.ButtonPressed += Btn_ButtonPressed;
+            btn.BorderThickness = 3;
+            btn.BorderColor = Color.Blue;
 
             while (w.IsOpen)
             {

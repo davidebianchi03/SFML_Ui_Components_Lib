@@ -1,0 +1,15 @@
+C:\Users\Davide\Desktop\SFML_Ui_Components_Lib\SFMLUIControls\SFMLUIControls\bin\Release\SFMLUIControls.dll
+C:\Users\Davide\Desktop\SFML_Ui_Components_Lib\SFMLUIControls\SFMLUIControls\bin\Release\SFMLUIControls.pdb
+C:\Users\Davide\Desktop\SFML_Ui_Components_Lib\SFMLUIControls\SFMLUIControls\bin\Release\SFML.Audio.dll
+C:\Users\Davide\Desktop\SFML_Ui_Components_Lib\SFMLUIControls\SFMLUIControls\bin\Release\SFML.Graphics.dll
+C:\Users\Davide\Desktop\SFML_Ui_Components_Lib\SFMLUIControls\SFMLUIControls\bin\Release\SFML.System.dll
+C:\Users\Davide\Desktop\SFML_Ui_Components_Lib\SFMLUIControls\SFMLUIControls\bin\Release\SFML.Window.dll
+C:\Users\Davide\Desktop\SFML_Ui_Components_Lib\SFMLUIControls\SFMLUIControls\bin\Release\SFML.Audio.xml
+C:\Users\Davide\Desktop\SFML_Ui_Components_Lib\SFMLUIControls\SFMLUIControls\bin\Release\SFML.Graphics.xml
+C:\Users\Davide\Desktop\SFML_Ui_Components_Lib\SFMLUIControls\SFMLUIControls\bin\Release\SFML.System.xml
+C:\Users\Davide\Desktop\SFML_Ui_Components_Lib\SFMLUIControls\SFMLUIControls\bin\Release\SFML.Window.xml
+C:\Users\Davide\Desktop\SFML_Ui_Components_Lib\SFMLUIControls\SFMLUIControls\obj\Release\SFMLUIControls.csproj.AssemblyReference.cache
+C:\Users\Davide\Desktop\SFML_Ui_Components_Lib\SFMLUIControls\SFMLUIControls\obj\Release\SFMLUIControls.csproj.CoreCompileInputs.cache
+C:\Users\Davide\Desktop\SFML_Ui_Components_Lib\SFMLUIControls\SFMLUIControls\obj\Release\SFMLUIControls.csproj.CopyComplete
+C:\Users\Davide\Desktop\SFML_Ui_Components_Lib\SFMLUIControls\SFMLUIControls\obj\Release\SFMLUIControls.dll
+C:\Users\Davide\Desktop\SFML_Ui_Components_Lib\SFMLUIControls\SFMLUIControls\obj\Release\SFMLUIControls.pdb

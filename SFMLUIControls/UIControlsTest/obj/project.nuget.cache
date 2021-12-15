@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IOpPc8RPwDxZKhuog/zbTO8n9ZNq5d9vckQyh4xc1I0VOafPRA/znGw0Jnj+KDz2KlUQYgp+Zoz7OnkQnXPCdg==",
+  "dgSpecHash": "xe2lQGixUbnqD0YykB6WxYzvCA20droBCeSdFaET6cMQmi+mA4Y3PXQghckv29pzTxdtQn2P7Q1qCKmfGxLkhQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Davide\\Desktop\\cursorspeed\\cursorspeedc#\\SFMLUIControls\\UIControlsTest\\UIControlsTest.csproj",
+  "projectFilePath": "C:\\Users\\Davide\\Desktop\\SFML_Ui_Components_Lib\\SFMLUIControls\\UIControlsTest\\UIControlsTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Davide\\.nuget\\packages\\csfml\\2.5.0\\csfml.2.5.0.nupkg.sha512",
     "C:\\Users\\Davide\\.nuget\\packages\\sfml.graphics\\2.5.0\\sfml.graphics.2.5.0.nupkg.sha512",

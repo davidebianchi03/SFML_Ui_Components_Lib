@@ -22,9 +22,11 @@ namespace SFMLUIControls
 
         private RenderWindow window;
 
-        private int last_time_button_pressed_and_realesed;
-
         public Font Font { get; set; }
+
+        public int BorderThickness { get; set; }
+
+        public Color BorderColor { get; set; }
 
         //constructors
         public UIButton(RenderWindow window, Font Font)
@@ -37,9 +39,11 @@ namespace SFMLUIControls
             TextSize = 0;
             FillColor = Color.White;
             this.window = window;
-            last_time_button_pressed_and_realesed = DateTime.Now.Millisecond;
+            BorderColor = Color.Black;
+            BorderThickness = 0;
+            window.MouseButtonReleased += MouseButtonReleasedCallback;
+            window.MouseButtonPressed += MousePressedCallback;
         }
-
 
 
         public UIButton(RenderWindow window, string content, Font Font)
@@ -52,7 +56,10 @@ namespace SFMLUIControls
             TextSize = 0;
             FillColor = Color.White;
             this.window = window;
-            last_time_button_pressed_and_realesed = DateTime.Now.Millisecond;
+            BorderColor = Color.Black;
+            BorderThickness = 0;
+            window.MouseButtonReleased += MouseButtonReleasedCallback;
+            window.MouseButtonPressed += MousePressedCallback;
         }
 
         public UIButton(RenderWindow window,string content,Color textColor,Font Font)
@@ -65,7 +72,10 @@ namespace SFMLUIControls
             TextSize = 0;
             FillColor = Color.White;
             this.window = window;
-            last_time_button_pressed_and_realesed = DateTime.Now.Millisecond;
+            BorderColor = Color.Black;
+            BorderThickness = 0;
+            window.MouseButtonReleased += MouseButtonReleasedCallback;
+            window.MouseButtonPressed += MousePressedCallback;
         }
 
         public void drawButton()
@@ -86,44 +96,44 @@ namespace SFMLUIControls
             shape.Size = Size;
             shape.Position = Position;
             shape.FillColor = FillColor;
+            shape.OutlineColor = BorderColor;
+            shape.OutlineThickness = BorderThickness;
 
             window.Draw(shape);
             window.Draw(text_to_show);
-            window.MouseButtonReleased += MouseButtonReleasedCallback;
+            
         }
 
-        
+        private Vector2f original_size;
+        private Vector2f original_position;
+        private Vector2f new_size;
+        private Vector2f new_position;
+
+        private void MousePressedCallback(object sender, SFML.Window.MouseButtonEventArgs e)
+        {
+            original_size = Size;
+            original_position = Position;
+            new_size = new Vector2f(original_size.X - 4, original_size.Y - 4);
+            new_position = new Vector2f(original_position.X + 2, original_position.Y + 2);
+            Size = new_size;
+            Position = new_position;
+        }
 
         private void MouseButtonReleasedCallback(object sender, SFML.Window.MouseButtonEventArgs e)
         {
-            //controllo se il mouse è stato premuto nello spazio del pulsante e se non è appena stato premuto (l'evento viene richiamato molte volte)
+            //controllo se il mouse è stato premuto nello spazio del pulsante
             int mouse_x = e.X;
             int mouse_y = e.Y;
-            if(mouse_x >= Position.X && mouse_y >= Position.Y && mouse_x <= Position.X + Size.X && mouse_y <= Position.Y + Size.Y
-                && (Math.Abs(DateTime.Now.Millisecond -last_time_button_pressed_and_realesed))>100)
+            if(mouse_x >= Position.X && mouse_y >= Position.Y && mouse_x <= Position.X + Size.X && mouse_y <= Position.Y + Size.Y)
             {
-                last_time_button_pressed_and_realesed = DateTime.Now.Millisecond;
                 ButtonPressed?.Invoke(this, EventArgs.Empty);
-                //faccio partire l'animazione del click
-                Thread animation_thread = new Thread(ButtonPressedAnimation);
-                animation_thread.Start();
+                
+                Size = original_size;
+                Position = original_position;
             }
         }
 
         public event EventHandler ButtonPressed;//evento pulsante premuto
 
-        //animazione pulsante premuto
-        private void ButtonPressedAnimation()
-        {
-            Vector2f original_size = Size;
-            Vector2f original_position = Position;
-            Vector2f new_size = new Vector2f(original_size.X-4, original_size.Y - 4);
-            Vector2f new_position = new Vector2f(original_position.X + 2, original_position.Y +2);
-            Size = new_size;
-            Position = new_position;
-            Thread.Sleep(250);
-            Size = original_size;
-            Position = original_position;
-        }
     }
 }
