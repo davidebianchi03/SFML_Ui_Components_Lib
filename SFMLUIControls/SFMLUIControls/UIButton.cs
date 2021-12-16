@@ -78,7 +78,7 @@ namespace SFMLUIControls
             window.MouseButtonPressed += MousePressedCallback;
         }
 
-        public void drawButton()
+        public void draw()
         {
             Text text_to_show = new Text(content, Font);
             text_to_show.CharacterSize = (uint)textSize;
@@ -111,12 +111,19 @@ namespace SFMLUIControls
 
         private void MousePressedCallback(object sender, SFML.Window.MouseButtonEventArgs e)
         {
-            original_size = Size;
-            original_position = Position;
-            new_size = new Vector2f(original_size.X - 4, original_size.Y - 4);
-            new_position = new Vector2f(original_position.X + 2, original_position.Y + 2);
-            Size = new_size;
-            Position = new_position;
+            //controllo se il mouse è stato premuto nello spazio del pulsante
+            int mouse_x = e.X;
+            int mouse_y = e.Y;
+            if (mouse_x >= Position.X && mouse_y >= Position.Y && mouse_x <= Position.X + Size.X && mouse_y <= Position.Y + Size.Y)
+            {
+                original_size = Size;
+                original_position = Position;
+                new_size = new Vector2f(original_size.X - 4, original_size.Y - 4);
+                new_position = new Vector2f(original_position.X + 2, original_position.Y + 2);
+                Size = new_size;
+                Position = new_position;
+            }
+            
         }
 
         private void MouseButtonReleasedCallback(object sender, SFML.Window.MouseButtonEventArgs e)
@@ -126,7 +133,7 @@ namespace SFMLUIControls
             int mouse_y = e.Y;
             if(mouse_x >= Position.X && mouse_y >= Position.Y && mouse_x <= Position.X + Size.X && mouse_y <= Position.Y + Size.Y)
             {
-                ButtonPressed?.Invoke(this, EventArgs.Empty);
+                ButtonPressed?.Invoke(this, EventArgs.Empty);//richiamo l'evento
                 
                 Size = original_size;
                 Position = original_position;

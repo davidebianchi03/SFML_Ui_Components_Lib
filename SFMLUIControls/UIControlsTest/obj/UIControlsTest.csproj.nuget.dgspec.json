@@ -1,54 +1,52 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Davide\\Desktop\\SFML_Ui_Components_Lib\\SFMLUIControls\\UIControlsTest\\UIControlsTest.csproj": {}
+    "E:\\bianchi\\SFML_Ui_Components_Lib\\SFMLUIControls\\UIControlsTest\\UIControlsTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Davide\\Desktop\\SFML_Ui_Components_Lib\\SFMLUIControls\\SFMLUIControls\\SFMLUIControls.csproj": {
+    "E:\\bianchi\\SFML_Ui_Components_Lib\\SFMLUIControls\\SFMLUIControls\\SFMLUIControls.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\Davide\\Desktop\\SFML_Ui_Components_Lib\\SFMLUIControls\\SFMLUIControls\\SFMLUIControls.csproj",
+        "projectUniqueName": "E:\\bianchi\\SFML_Ui_Components_Lib\\SFMLUIControls\\SFMLUIControls\\SFMLUIControls.csproj",
         "projectName": "SFMLUIControls",
-        "projectPath": "C:\\Users\\Davide\\Desktop\\SFML_Ui_Components_Lib\\SFMLUIControls\\SFMLUIControls\\SFMLUIControls.csproj",
-        "frameworks": {
-          "net472": {
-            "projectReferences": {}
-          }
-        }
+        "projectPath": "E:\\bianchi\\SFML_Ui_Components_Lib\\SFMLUIControls\\SFMLUIControls\\SFMLUIControls.csproj"
       },
       "frameworks": {
-        "net472": {}
+        "net451": {}
       }
     },
-    "C:\\Users\\Davide\\Desktop\\SFML_Ui_Components_Lib\\SFMLUIControls\\UIControlsTest\\UIControlsTest.csproj": {
+    "E:\\bianchi\\SFML_Ui_Components_Lib\\SFMLUIControls\\UIControlsTest\\UIControlsTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Davide\\Desktop\\SFML_Ui_Components_Lib\\SFMLUIControls\\UIControlsTest\\UIControlsTest.csproj",
+        "projectUniqueName": "E:\\bianchi\\SFML_Ui_Components_Lib\\SFMLUIControls\\UIControlsTest\\UIControlsTest.csproj",
         "projectName": "UIControlsTest",
-        "projectPath": "C:\\Users\\Davide\\Desktop\\SFML_Ui_Components_Lib\\SFMLUIControls\\UIControlsTest\\UIControlsTest.csproj",
-        "packagesPath": "C:\\Users\\Davide\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Davide\\Desktop\\SFML_Ui_Components_Lib\\SFMLUIControls\\UIControlsTest\\obj\\",
+        "projectPath": "E:\\bianchi\\SFML_Ui_Components_Lib\\SFMLUIControls\\UIControlsTest\\UIControlsTest.csproj",
+        "packagesPath": "C:\\Users\\bianchi_davide\\.nuget\\packages\\",
+        "outputPath": "E:\\bianchi\\SFML_Ui_Components_Lib\\SFMLUIControls\\UIControlsTest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Davide\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\bianchi_davide\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net5.0-windows7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net5.0-windows7.0": {
+            "targetAlias": "net5.0-windows",
             "projectReferences": {
-              "C:\\Users\\Davide\\Desktop\\SFML_Ui_Components_Lib\\SFMLUIControls\\SFMLUIControls\\SFMLUIControls.csproj": {
-                "projectPath": "C:\\Users\\Davide\\Desktop\\SFML_Ui_Components_Lib\\SFMLUIControls\\SFMLUIControls\\SFMLUIControls.csproj"
+              "E:\\bianchi\\SFML_Ui_Components_Lib\\SFMLUIControls\\SFMLUIControls\\SFMLUIControls.csproj": {
+                "projectPath": "E:\\bianchi\\SFML_Ui_Components_Lib\\SFMLUIControls\\SFMLUIControls\\SFMLUIControls.csproj"
               }
             }
           }
@@ -60,8 +58,8 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
           "dependencies": {
             "SFML.Graphics": {
               "target": "Package",
@@ -83,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
