@@ -36,6 +36,7 @@ namespace SFMLUIControls
 
         private bool textInputSelected;
         private int cursorPosition;
+        public bool Enable { get; set; } = true;
 
 
         //Costruttori
@@ -93,20 +94,53 @@ namespace SFMLUIControls
             text.Font = Font;
             text.CharacterSize = (uint)TextSize;
             text.FillColor = ForegroundColor;
+
+            string newContent = "";
             if (ShowTextCursor)
             {
-                text.DisplayedString = Content.Insert(cursorPosition, "|");
+                newContent = Content.Insert(cursorPosition, "|");
             }
             else
             {
-                text.DisplayedString = Content;
+                newContent = Content;
             }
 
+            text.DisplayedString = "";
+            int textMaximumSize = 0;
+            while (text.GetGlobalBounds().Width < Size.X - 20)
+            {
+                text.DisplayedString += "A";
+                textMaximumSize++;
+            }
+            text.DisplayedString = "";
+
+            if (textMaximumSize >= newContent.Length)
+            {
+                textMaximumSize = newContent.Length;
+            }
+
+            if (cursorPosition < textMaximumSize)
+            {
+                text.DisplayedString = newContent.Substring(0, textMaximumSize);
+            }
+            else
+            {
+                try
+                {
+                    text.DisplayedString = newContent.Substring(cursorPosition - textMaximumSize, textMaximumSize + 1);
+                }
+                catch { text.DisplayedString = newContent.Substring(cursorPosition - textMaximumSize, textMaximumSize); }
+
+            }
+
+
+            int textEndX = 0;
             if (TextAlignment == AlignmentLeft)
             {
                 float content_height = text.GetLocalBounds().Height;
                 int content_y = (int)Position.Y + (int)Size.Y / 2 - (int)content_height / 2 - 5 + 2;
                 text.Position = new Vector2f(Position.X + 5, content_y);
+                textEndX = (int)Position.X - 5 + (int)text.GetGlobalBounds().Width - 5;
             }
             else if (TextAlignment == AlignmentCenter)
             {
@@ -115,6 +149,7 @@ namespace SFMLUIControls
                 int content_x = (int)Position.X + (int)Size.X / 2 - (int)content_width / 2;
                 int content_y = (int)Position.Y + (int)Size.Y / 2 - (int)content_height / 2 - 5 + 2;
                 text.Position = new Vector2f(content_x, content_y);
+                textEndX = (int)Position.X + (int)content_width / 2;
             }
             else if (TextAlignment == AlignmentRight)
             {
@@ -123,6 +158,7 @@ namespace SFMLUIControls
                 int content_x = (int)Position.X + (int)Size.X - (int)content_width;
                 int content_y = (int)Position.Y + (int)Size.Y / 2 - (int)content_height / 2 - 5 + 2;
                 text.Position = new Vector2f(content_x - 5, content_y);
+                textEndX = (int)Position.X + (int)content_width;
             }
 
             window.Draw(text);
@@ -172,7 +208,7 @@ namespace SFMLUIControls
         private void KeyPressedCallback(object sender, SFML.Window.KeyEventArgs e)
         {
             //mapping di tutti i tasti della tastiera
-            if (textInputSelected)
+            if (textInputSelected && Enable)
             {
                 if (e.Code == Keyboard.Key.Backspace)
                 {
@@ -180,7 +216,7 @@ namespace SFMLUIControls
                     //rimuovo la lettera all'ultima posizione
                     if (Content.Length > 0 && cursorPosition > 0)
                     {
-                        Content = Content.Remove(Content.Length - 1);
+                        Content = Content.Remove(cursorPosition - 1, 1);
                         cursorPosition--;
                     }
                 }
@@ -367,7 +403,7 @@ namespace SFMLUIControls
                         Console.Beep(1000, 250);
                     }
                 }
-                else if(e.Code == Keyboard.Key.Add)
+                else if (e.Code == Keyboard.Key.Add)
                 {
                     Content = Content.Insert(cursorPosition, "+");
                     cursorPosition++;
@@ -387,13 +423,13 @@ namespace SFMLUIControls
                     Content = Content.Insert(cursorPosition, "*");
                     cursorPosition++;
                 }
-                else if((int)e.Code == 48)
+                else if ((int)e.Code == 48)
                 {
-                    if(!Keyboard.IsKeyPressed(Keyboard.Key.LShift) && !Keyboard.IsKeyPressed(Keyboard.Key.RShift) && !Keyboard.IsKeyPressed(Keyboard.Key.RAlt))
+                    if (!Keyboard.IsKeyPressed(Keyboard.Key.LShift) && !Keyboard.IsKeyPressed(Keyboard.Key.RShift) && !Keyboard.IsKeyPressed(Keyboard.Key.RAlt))
                     {
                         Content = Content.Insert(cursorPosition, "è");
                     }
-                    else if(!Keyboard.IsKeyPressed(Keyboard.Key.LShift) && !Keyboard.IsKeyPressed(Keyboard.Key.RShift) && Keyboard.IsKeyPressed(Keyboard.Key.RAlt))
+                    else if (!Keyboard.IsKeyPressed(Keyboard.Key.LShift) && !Keyboard.IsKeyPressed(Keyboard.Key.RShift) && Keyboard.IsKeyPressed(Keyboard.Key.RAlt))
                     {
                         Content = Content.Insert(cursorPosition, "[");
                     }
@@ -493,7 +529,7 @@ namespace SFMLUIControls
                 }
                 KeyPressed?.Invoke(this, EventArgs.Empty);//richiamo l'evento    
             }
-            
+
             //Console.WriteLine((int)e.Code);
         }
 

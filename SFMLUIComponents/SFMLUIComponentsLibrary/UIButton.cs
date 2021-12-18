@@ -14,7 +14,7 @@ namespace SFMLUIControls
 
         public Vector2f Size { get; set; }
 
-        public  Vector2f Position { get; set; }
+        public Vector2f Position { get; set; }
 
         public int TextSize { get; set; }
 
@@ -27,6 +27,7 @@ namespace SFMLUIControls
         public int BorderThickness { get; set; }
 
         public Color BorderColor { get; set; }
+        public bool Enable { get; set; } = true;
 
         //constructors
         public UIButton(RenderWindow window, Font Font)
@@ -34,7 +35,7 @@ namespace SFMLUIControls
             content = "";
             textColor = Color.Black;
             this.Font = Font;
-            Size = new Vector2f(0,0);
+            Size = new Vector2f(0, 0);
             Position = new Vector2f(0, 0);
             TextSize = 0;
             FillColor = Color.White;
@@ -62,7 +63,7 @@ namespace SFMLUIControls
             window.MouseButtonPressed += MousePressedCallback;
         }
 
-        public UIButton(RenderWindow window,string content,Color textColor,Font Font)
+        public UIButton(RenderWindow window, string content, Color textColor, Font Font)
         {
             this.content = content;
             this.textColor = textColor;
@@ -86,9 +87,9 @@ namespace SFMLUIControls
             float content_width = text_to_show.GetLocalBounds().Width;
             float content_height = text_to_show.GetLocalBounds().Height;
 
-            int content_x = (int)Position.X + (int)Size.X/2 - (int)content_width / 2;
-            int content_y = (int)Position.Y + (int)Size.Y/2 - (int)content_height / 2 - 5;
-            text_to_show.Position = new Vector2f(content_x,content_y);
+            int content_x = (int)Position.X + (int)Size.X / 2 - (int)content_width / 2;
+            int content_y = (int)Position.Y + (int)Size.Y / 2 - (int)content_height / 2 - 5;
+            text_to_show.Position = new Vector2f(content_x, content_y);
 
             //text_to_show.Position = Position;
 
@@ -101,7 +102,7 @@ namespace SFMLUIControls
 
             window.Draw(shape);
             window.Draw(text_to_show);
-            
+
         }
 
         private Vector2f original_size;
@@ -114,7 +115,7 @@ namespace SFMLUIControls
             //controllo se il mouse è stato premuto nello spazio del pulsante
             int mouse_x = e.X;
             int mouse_y = e.Y;
-            if (mouse_x >= Position.X && mouse_y >= Position.Y && mouse_x <= Position.X + Size.X && mouse_y <= Position.Y + Size.Y)
+            if ((mouse_x >= Position.X && mouse_y >= Position.Y && mouse_x <= Position.X + Size.X && mouse_y <= Position.Y + Size.Y) && Enable)
             {
                 original_size = Size;
                 original_position = Position;
@@ -123,7 +124,7 @@ namespace SFMLUIControls
                 Size = new_size;
                 Position = new_position;
             }
-            
+
         }
 
         private void MouseButtonReleasedCallback(object sender, SFML.Window.MouseButtonEventArgs e)
@@ -131,10 +132,10 @@ namespace SFMLUIControls
             //controllo se il mouse è stato premuto nello spazio del pulsante
             int mouse_x = e.X;
             int mouse_y = e.Y;
-            if(mouse_x >= Position.X && mouse_y >= Position.Y && mouse_x <= Position.X + Size.X && mouse_y <= Position.Y + Size.Y)
+            if ((mouse_x >= Position.X && mouse_y >= Position.Y && mouse_x <= Position.X + Size.X && mouse_y <= Position.Y + Size.Y) && Enable)
             {
                 ButtonPressed?.Invoke(this, EventArgs.Empty);//richiamo l'evento
-                
+
                 Size = original_size;
                 Position = original_position;
             }
