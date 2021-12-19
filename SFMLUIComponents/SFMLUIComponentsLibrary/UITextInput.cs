@@ -95,23 +95,33 @@ namespace SFMLUIControls
             text.CharacterSize = (uint)TextSize;
             text.FillColor = ForegroundColor;
 
-            string newContent = "";
-            if (ShowTextCursor)
+            string newContent = Content;
+
+
+
+            /*if (ShowTextCursor)
             {
                 newContent = Content.Insert(cursorPosition, "|");
             }
             else
             {
                 newContent = Content;
-            }
+            }*/
 
             text.DisplayedString = "";
             int textMaximumSize = 0;
+            int charWidth = 0;
             while (text.GetGlobalBounds().Width < Size.X - 20)
             {
                 text.DisplayedString += "A";
                 textMaximumSize++;
+                if (textMaximumSize == 1)
+                {
+                    charWidth = (int)text.GetLocalBounds().Width;
+                }
             }
+
+            int current_cursor_position = 0;
             text.DisplayedString = "";
 
             if (textMaximumSize >= newContent.Length)
@@ -122,6 +132,8 @@ namespace SFMLUIControls
             if (cursorPosition < textMaximumSize)
             {
                 text.DisplayedString = newContent.Substring(0, textMaximumSize);
+                current_cursor_position = cursorPosition - 1;
+                
             }
             else
             {
@@ -130,15 +142,16 @@ namespace SFMLUIControls
                     text.DisplayedString = newContent.Substring(cursorPosition - textMaximumSize, textMaximumSize + 1);
                 }
                 catch { text.DisplayedString = newContent.Substring(cursorPosition - textMaximumSize, textMaximumSize); }
-
+                current_cursor_position = text.DisplayedString.Length - 1;
             }
 
 
             int textEndX = 0;
+            int content_y = 0;
             if (TextAlignment == AlignmentLeft)
             {
                 float content_height = text.GetLocalBounds().Height;
-                int content_y = (int)Position.Y + (int)Size.Y / 2 - (int)content_height / 2 - 5 + 2;
+                content_y = (int)Position.Y + (int)Size.Y / 2 - (int)content_height / 2 - 5 + 2;
                 text.Position = new Vector2f(Position.X + 5, content_y);
                 textEndX = (int)Position.X - 5 + (int)text.GetGlobalBounds().Width - 5;
             }
@@ -147,7 +160,7 @@ namespace SFMLUIControls
                 float content_width = text.GetLocalBounds().Width;
                 float content_height = text.GetLocalBounds().Height;
                 int content_x = (int)Position.X + (int)Size.X / 2 - (int)content_width / 2;
-                int content_y = (int)Position.Y + (int)Size.Y / 2 - (int)content_height / 2 - 5 + 2;
+                content_y = (int)Position.Y + (int)Size.Y / 2 - (int)content_height / 2 - 5 + 2;
                 text.Position = new Vector2f(content_x, content_y);
                 textEndX = (int)Position.X + (int)content_width / 2;
             }
@@ -156,9 +169,31 @@ namespace SFMLUIControls
                 float content_width = text.GetLocalBounds().Width;
                 float content_height = text.GetLocalBounds().Height;
                 int content_x = (int)Position.X + (int)Size.X - (int)content_width;
-                int content_y = (int)Position.Y + (int)Size.Y / 2 - (int)content_height / 2 - 5 + 2;
+                content_y = (int)Position.Y + (int)Size.Y / 2 - (int)content_height / 2 - 5 + 2;
                 text.Position = new Vector2f(content_x - 5, content_y);
                 textEndX = (int)Position.X + (int)content_width;
+            }
+            //draw cursor line
+            string current_content = text.DisplayedString;
+            text.DisplayedString = "";
+            float cursor_x = 0;
+
+            for (int i = 0; i < current_content.Length; i++)
+            {
+                text.DisplayedString += current_content[i];
+                if (i == current_cursor_position)
+                {//
+                    cursor_x = text.GetGlobalBounds().Left + text.GetGlobalBounds().Width;
+                }
+            }
+
+            if (ShowTextCursor)
+            {
+                //Draw cursor line
+                RectangleShape cursorLine = new RectangleShape(new Vector2f(2, TextSize + 5));
+                cursorLine.Position = new Vector2f(cursor_x, content_y);
+                cursorLine.FillColor = ForegroundColor;
+                window.Draw(cursorLine);
             }
 
             window.Draw(text);
